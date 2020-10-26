@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-824009251/app_java.iml" filepath="$PROJECT_DIR$/.idea/modules/-824009251/app_java.iml" group="lection03/app_java" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app_kotlin.iml" filepath="$PROJECT_DIR$/.idea/modules/app_kotlin.iml" group="lection03/app_kotlin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/28929298/lection03.iml" filepath="$PROJECT_DIR$/.idea/modules/28929298/lection03.iml" group="lection03" />
+    </modules>
+  </component>
+</project>
