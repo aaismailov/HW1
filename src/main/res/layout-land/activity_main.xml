@@ -1,40 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    android:orientation="horizontal"
-
-    tools:context=".presentationlayer.MainActivity"
-    >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".presentationlayer.MainActivity">
 
         <fragment
-        android:id="@+id/data"
-        android:name="ru.hse.lection03.presentationlayer.DroidListFragment"
+            android:id="@+id/data"
+            android:name="ru.hse.lection03.presentationlayer.DroidListFragment"
 
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-        <FrameLayout
-            android:id="@+id/details"
+    <FrameLayout
+        android:id="@+id/details"
 
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
-        </FrameLayout>
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/button"
@@ -46,7 +30,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/roundedbutton"
-        android:text="ADD"
+        android:text="@string/add"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold" />

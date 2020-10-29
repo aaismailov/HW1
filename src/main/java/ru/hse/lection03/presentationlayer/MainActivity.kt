@@ -1,6 +1,7 @@
 package ru.hse.lection03.presentationlayer
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -41,20 +42,15 @@ class MainActivity : AppCompatActivity(), DroidListFragment.IListener {
             }
         )
 
-        val isDual = resources.getBoolean(R.bool.is_dual)
-
         // Проверяем что эта Activity не имеет сохраненного стейта и вставляем свой фрагмент
         // Если стейт есть, тогда фрагмент будет восстановлен без нашего участия
         if (savedInstanceState == null) {
-            if (isDual) {
-                // У нас двухпанельный режим, устанавливаем детали по дефолту
-                val droid = DroidRepository.instance.item(DEFAULT_DROID_INDEX)
-                showDetails(droid)
-            }
+            val droid = DroidRepository.instance.item(DEFAULT_DROID_INDEX)
+            showDetails(droid)
         } else {
             // Произошло восстановление Activity savedInstanceState
             // Убедимся, что у нас в текущей конфигурации нет лишних объектов
-            checkDetails(isDual)
+            checkDetails(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
         }
     }
 
@@ -81,7 +77,7 @@ class MainActivity : AppCompatActivity(), DroidListFragment.IListener {
 
         val detailsFragment = DroidDetailsFragment.newInstance(droid)
 
-        val isDual = resources.getBoolean(R.bool.is_dual)
+        val isDual = (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
         when (isDual) {
             true -> {
                 // Отображаем детали Дроида во второй панели
@@ -92,8 +88,12 @@ class MainActivity : AppCompatActivity(), DroidListFragment.IListener {
             }
 
             false -> {
+                supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.details, detailsFragment, TAG_DETAILS) // заменить фрагмент
+                        .commitAllowingStateLoss()
                 // Отображаем детали Дроида, как диалог
-                detailsFragment.show(supportFragmentManager, TAG_DETAILS_DIALOG)
+                // detailsFragment.show(supportFragmentManager, TAG_DETAILS_DIALOG)
             }
         }
     }

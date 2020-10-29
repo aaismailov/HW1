@@ -5,4 +5,6 @@
     <string name="caption_droid_state_removed">REMOVED</string>
     <string name="caption_droid_state_new">NEW</string>
     <string name="caption_droid_state_unknown">UNKNOWN</string>
+    <string name="add">ADD</string>
+    <string name="todo">TODO</string>
 </resources>
