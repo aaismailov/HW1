@@ -2,12 +2,10 @@ package ru.hse.lection03.presentationlayer.adapter
 
 import android.graphics.Color
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.hse.lection03.R
-import ru.hse.lection03.businesslayer.DroidRepository
 import ru.hse.lection03.objects.Droid
 
 class DroidViewHolder(itemView: View, val listener: IListener) : RecyclerView.ViewHolder(itemView) {
@@ -18,10 +16,8 @@ class DroidViewHolder(itemView: View, val listener: IListener) : RecyclerView.Vi
         fun onDroidClicked(position: Int)
     }
 
-
     protected val name: TextView
     protected val image: ImageView
-
 
     init {
         // Находим View, которые будут отвечать за имя и картинку
@@ -32,10 +28,7 @@ class DroidViewHolder(itemView: View, val listener: IListener) : RecyclerView.Vi
         itemView.setOnClickListener {
             listener.onDroidClicked(adapterPosition)
         }
-
-
     }
-
 
     fun bind(item: Droid) {
         // Ставим имя дроида
@@ -54,6 +47,4 @@ class DroidViewHolder(itemView: View, val listener: IListener) : RecyclerView.Vi
             setTextColor(Color.parseColor(colorResId))
         }
     }
-
 }
-

@@ -22,7 +22,7 @@ class DroidListFragment : Fragment() {
 
     // Вариант кода, для общения с activity без Intent
     protected var listener: IListener? = null
-
+    var adapter: DroidAdapter = DroidAdapter(DroidRepository.instance.list(), DroidClickHandler())
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -33,11 +33,11 @@ class DroidListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // устанавливаем верстку
         return inflater.inflate(
-                R.layout.content_list   // ресурс для "надувания" в дерево View
-                , container             // родитель, куда потом будет вставлена верстка
-                , false     // стоит false, что бы инфлейтер вернул верстку.
-                                        // Если поставить true, то инфлейтер вставит верстку в parent, и вернет тоже parent
-                                        // Мы сами в шоке от того, почему была сделана такая логика работы метод:(
+            R.layout.content_list, // ресурс для "надувания" в дерево View
+            container, // родитель, куда потом будет вставлена верстка
+            false // стоит false, что бы инфлейтер вернул верстку.
+            // Если поставить true, то инфлейтер вставит верстку в parent, и вернет тоже parent
+            // Мы сами в шоке от того, почему была сделана такая логика работы метод:(
         )
     }
 
@@ -49,9 +49,9 @@ class DroidListFragment : Fragment() {
         val isDual = resources.getBoolean(R.bool.is_dual)
         recycler.apply {
             adapter = DroidAdapter(DroidRepository.instance.list(), DroidClickHandler())
-            when(isDual){
-                true->layoutManager = GridLayoutManager(context, 4)
-                false->layoutManager = GridLayoutManager(context, 3)
+            when (isDual) {
+                true -> layoutManager = GridLayoutManager(context, 4)
+                false -> layoutManager = GridLayoutManager(context, 3)
             }
         }
     }
@@ -62,10 +62,9 @@ class DroidListFragment : Fragment() {
         listener = null
     }
 
-
     // Одна из возможных реализаций отслеживания клика по элементу
     // обработчик клика по элементу
-    inner class DroidClickHandler: DroidViewHolder.IListener {
+    inner class DroidClickHandler : DroidViewHolder.IListener {
         override fun onDroidClicked(position: Int) {
             val droid = DroidRepository.instance.item(position)
 
@@ -73,8 +72,8 @@ class DroidListFragment : Fragment() {
             listener?.onDroidClicked(droid)
 
             // Вариант кода, для android:launchMode="singleInstance"
-//            val intent = MainActivity.droidDetailsIntent(requireContext(), droid)
-//            startActivity(intent)
+            // val intent = MainActivity.droidDetailsIntent(requireContext(), droid)
+            // startActivity(intent)
         }
     }
 }

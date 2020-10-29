@@ -11,12 +11,9 @@ import androidx.fragment.app.DialogFragment
 import ru.hse.lection03.R
 import ru.hse.lection03.objects.Droid
 
-
 class DroidDetailsFragment : DialogFragment() {
     companion object {
         const val EXTRAS_DROID = "DROID"
-
-
 
         // helper-метод для создания инстанса фрагмента
         // Это один из подходов в упрощении
@@ -34,7 +31,6 @@ class DroidDetailsFragment : DialogFragment() {
         }
     }
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.content_details, container, false)
     }
@@ -46,7 +42,6 @@ class DroidDetailsFragment : DialogFragment() {
         if (droid != null) {
             // Устанавливаем имя
             view.findViewById<TextView>(R.id.name).text = droid.name
-
 
             val stateColor = when (droid.state) {
                 Droid.STATE_REMOVED -> "#ff0000"
@@ -64,7 +59,7 @@ class DroidDetailsFragment : DialogFragment() {
             }
             view.findViewById<Button>(R.id.back).setOnClickListener(View.OnClickListener { dismiss() })
 
-            //view.findViewById<TextView>(R.id.state).setTextColor(stateColor)
+            // view.findViewById<TextView>(R.id.state).setTextColor(stateColor)
         }
     }
 

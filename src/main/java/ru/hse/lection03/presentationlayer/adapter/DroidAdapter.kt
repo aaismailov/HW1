@@ -1,9 +1,7 @@
 package ru.hse.lection03.presentationlayer.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import ru.hse.lection03.R
 import ru.hse.lection03.businesslayer.DroidRepository
@@ -18,7 +16,6 @@ class DroidAdapter(val data: List<Droid>, val listener: DroidViewHolder.IListene
         val inflater = LayoutInflater.from(parent.context)
         val layout = inflater.inflate(R.layout.item_droid, parent, false)
 
-
         // Создаем ViewHolder
         return DroidViewHolder(layout, listener)
     }
@@ -28,6 +25,12 @@ class DroidAdapter(val data: List<Droid>, val listener: DroidViewHolder.IListene
         val item = data[position]
 
         holder.bind(item)
+    }
+
+    fun addDigit() {
+        DroidRepository.instance.addNum()
+        // notifyDataSetChanged()
+        // notifyItemInserted(DroidRepository.instance.list().size+1)
     }
 
     // Размер данных
