@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity(), DroidListFragment.IListener {
 
         findViewById<Button>(R.id.button).setOnClickListener(
             View.OnClickListener {
-                var CurrFr = supportFragmentManager.findFragmentById(R.id.data) as? DroidListFragment
-                if (CurrFr != null) {
-                    CurrFr.adapter.addDigit()
-                }
-                // DroidRepository.instance.addNum()
+                /*var CurrFr = activity?.supportFragmentManager?.findFragmentById(R.id.data) as? DroidListFragment
+                    if (CurrFr != null) {
+                        CurrFr.adapter.addDigit()
+                    }*/
+                DroidRepository.instance.addNum()
             }
         )
 

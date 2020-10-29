@@ -32,6 +32,7 @@ class DroidListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // устанавливаем верстку
+
         return inflater.inflate(
             R.layout.content_list, // ресурс для "надувания" в дерево View
             container, // родитель, куда потом будет вставлена верстка

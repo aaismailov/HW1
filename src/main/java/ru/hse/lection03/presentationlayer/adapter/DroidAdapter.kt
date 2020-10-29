@@ -30,7 +30,7 @@ class DroidAdapter(val data: List<Droid>, val listener: DroidViewHolder.IListene
     fun addDigit() {
         DroidRepository.instance.addNum()
         // notifyDataSetChanged()
-        // notifyItemInserted(DroidRepository.instance.list().size+1)
+        notifyItemInserted(DroidRepository.instance.list().size - 1)
     }
 
     // Размер данных
