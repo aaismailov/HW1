@@ -1,20 +1,17 @@
 package ru.hse.lection03.businesslayer
 
 import ru.hse.lection03.objects.Droid
+import kotlin.collections.ArrayList
 
-class DroidRepository private constructor() {
+open class DroidRepository private constructor() {
     companion object {
-
         var DATA_SIZE = 100
-
-        // простенький singleton
-        val instance by lazy { DroidRepository() }
+        val instance = DroidRepository()
     }
 
-    // ленивая инициализации для списка Дроидов
-    protected var droidList = initializeData()
+    private var droidList = initializeData()
 
-    // получить список Дроидов
+    // получить список дроидов
     fun list() = droidList
 
     // получить дроида по индексу
@@ -22,16 +19,22 @@ class DroidRepository private constructor() {
 
     fun addNum() {
         DATA_SIZE += 1
-        // droidList += Droid("1",1)
-        droidList = initializeData()
-        println("addNUM AAAAAAAAAAA")
-        println(DATA_SIZE)
+        droidList.add(
+            Droid(
+                "$DATA_SIZE",
+                when (DATA_SIZE % 2 == 0) {
+                    true -> Droid.STATE_REMOVED
+                    false -> Droid.STATE_NEW
+                }
+            )
+        )
+        println(droidList.size)
         println(droidList.last().name)
     }
 
     // Функция инициализации списка дроидов
-    protected fun initializeData(): List<Droid> {
-        val data = mutableListOf<Droid>()
+    private fun initializeData(): ArrayList<Droid> {
+        val data = ArrayList<Droid>()
         // Наполняем лист в цикле
         for (position in 1 until DATA_SIZE + 1) {
             // Генерим имя дроида

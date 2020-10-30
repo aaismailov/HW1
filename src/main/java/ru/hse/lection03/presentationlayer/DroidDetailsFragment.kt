@@ -41,7 +41,6 @@ class DroidDetailsFragment : DialogFragment() {
         val droid = droid()
         if (droid != null) {
             // Устанавливаем имя
-            view.findViewById<TextView>(R.id.name).text = droid.name
 
             val stateColor = when (droid.state) {
                 Droid.STATE_REMOVED -> "#ff0000"
@@ -52,7 +51,7 @@ class DroidDetailsFragment : DialogFragment() {
             val stateTitle = droid.name
             view.findViewById<TextView>(R.id.state).apply {
                 // Устанавливаем название состояния
-                setText(stateTitle)
+                text = stateTitle
 
                 // Красим подложку в цвет, ассоциированный с состоянием
                 setTextColor(Color.parseColor(stateColor))

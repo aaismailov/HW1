@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<fragment
-    android:id="@+id/data"
-    android:name="ru.hse.lection03.presentationlayer.DroidListFragment"
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentationlayer.MainActivity"
+    <fragment
+        android:id="@+id/data"
+        android:name="ru.hse.lection03.presentationlayer.DroidListFragment"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentationlayer.MainActivity"
 
     />
     <FrameLayout
@@ -17,20 +18,5 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <Button
-        android:id="@+id/button"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/roundedbutton"
-        android:text="ADD"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold" />
 
 </RelativeLayout>

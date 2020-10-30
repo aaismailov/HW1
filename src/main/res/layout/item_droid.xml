@@ -15,7 +15,7 @@
         android:layout_height="56dp"
         android:scaleType="centerInside"
         tools:src="@color/droid_item_background"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/name"
@@ -30,6 +30,5 @@
         android:textStyle="bold"
         android:visibility="visible"
         tools:text="R" />
-
 
 </RelativeLayout>

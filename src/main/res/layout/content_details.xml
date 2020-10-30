@@ -1,50 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
 
+    android:id="@+id/item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:minHeight="300dp"
-    android:minWidth="200dp"
-
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/droid_item_background"
 
     tools:context=".presentationlayer.MainActivity">
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="100dp"
-        android:layout_height="56dp"
+    <ImageView
+        android:id="@+id/imageDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        tools:src="@color/droid_item_background"
+        android:contentDescription="@string/todo" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
+        android:orientation="vertical"
         android:gravity="center"
+        android:background="@color/droid_item_background"
 
-        tools:text="RandomName"
-        />
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        tools:context=".presentationlayer.MainActivity">
 
-        android:text="Your digit:"
-        />
-    <TextView
-        android:id="@+id/state"
-        android:layout_width="100dp"
-        android:layout_height="56dp"
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        android:gravity="center"
-        android:textSize="24dp"
-        android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="150sp"
+            android:textStyle="bold"
 
-        tools:text="@string/caption_droid_state_unknown"
-        />
+            tools:text="@string/caption_droid_state_unknown" />
 
-    <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="BACK"/>
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/back" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>
